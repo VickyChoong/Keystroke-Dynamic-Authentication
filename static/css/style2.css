@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, #501794, #3E70A1);
+    color: white;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo{
+    font-size: 30px;
+    font-weight:600;
+    color: #fff;
+    text-decoration: none;
+    margin-left: -4px;
+}
+
+.sign-out {
+    width: 85px;
+    height: 40px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.4);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.sign-out:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Container for Sidebar and Content */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+    width: 100%;
+    padding: 15px; /* Increased padding for larger button size */
+    margin-bottom: 15px; /* Increased margin for more vertical spacing */
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    background-color: #bbb;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.content-section {
+    margin-top: 20px;
+    display: none; /* Hide all content sections initially */
+}
+
+/* Content Container Styling */
+.content-container {
+    display: none; /* Hide all content sections initially */
+    padding: 20px;
+    background-color: #ebe6f0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(71, 67, 73, 0.932);
+    margin-bottom: 20px;
+}
+
+/* Input Box Styling */
+.input-box input {
+    width: 25%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    margin-bottom: 10px; /* Adds spacing below the input */
+}
+
+/* Adjust Button Styling */
+.input-box button {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #501794;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-box button:hover {
+    background-color: #3E70A1;
+}
+
+/* Specific styling for the Change Password button */
+.btn {
+    background: linear-gradient(90deg, #501794, #3E70A1); /* Change to your desired color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+

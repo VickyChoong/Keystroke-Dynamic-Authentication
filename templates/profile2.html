@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../static/css/style2.css">
+</head>
+<body>
+    <nav class="header">
+        <a href="#" class="logo"><i class='bx bxs-keyboard bx-s' style='color:#7b7676'></i> KeystrokeDynamic</a>
+        <div class="nav-button">
+            <button class="sign-out" id="sign-out-btn" onclick="window.location.href='/'">Sign Out</button>
+        </div>
+    </nav>
+
+    <!-- Container for Sidebar and Main Content -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <button class="nav-btn" onclick="showSection('default-section')">Home</button>
+            <button class="nav-btn" onclick="showSection('last-login-section')">Last Login Log</button>
+            <button class="nav-btn" onclick="showSection('username-change-section')">Change Username</button>
+            <button class="nav-btn" onclick="showSection('password-change-section')">Change Password</button>
+            <button class="nav-btn" onclick="showSection('update-typing-profile-section')">Update Typing Profile</button>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content" id="main-content">
+            <div id="default-section">
+                <h1>Hello, {{ username }}</h1>
+                <p>You made it! You're in.</p>
+                <p>Welcome to your personalized experience.</p>
+            
+                <!-- Keystroke Data Graphs - Visible only on Home section -->
+                <div id="keystroke-graphs">
+                    <h3>Keystroke Profile - Hold Time (in seconds)</h3>
+                    <ul>
+                        <li>The amount of time a key is pressed down before being released. This metric reflects the user's individual typing rhythm.</li>
+                    </ul>
+                    <canvas id="holdTimeChart" width="400" height="200"></canvas>
+            
+                    <h3>Keystroke Profile - Keydown-Keydown Time (in seconds)</h3>
+                    <ul>
+                        <li>The time interval between pressing one key and pressing the next key. This measures the transition speed between keys, showing fluidity in typing.</li>
+                    </ul>
+                    <canvas id="keydownKeydownTimeChart" width="400" height="200"></canvas>
+            
+                    <h3>Keystroke Profile - Keyup-Keydown Time (in seconds)</h3>
+                    <ul>
+                        <li>The time taken between releasing one key and pressing the next key. This captures the natural pauses and transitions in a user's typing pattern.</li>
+                    </ul>
+                    <canvas id="keyupKeydownTimeChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div id="last-login-section" class="content-container" style="display:none;">
+                <h3>Last Login Attempt</h3>
+                <p>This section shows the details of your recent login attempts.</p>
+                <p><strong>Last successful login:</strong> <span id="last-successful-login"></span></p>
+                <p><strong>Last failed login:</strong> <span id="last-failed-login"></span></p>
+                <p>Match Percentage for Each Sign-in Attempt:</p>
+                <ul id="login_attempts_list"></ul>
+            </div>
+
+            <div id="username-change-section" class="content-container" style="display:none;">
+                <h3>Change Username</h3>
+                <p>Enter a new username below and click "Update Username" to save your changes.</p>
+                <div class="input-box">
+                    <input type="text" id="new-username" placeholder="Enter new username">
+                </div>
+                <button class="btn" id="update-username-btn">Update Username</button>
+            </div>
+
+            <div id="password-change-section" class="content-container" style="display:none;">
+                <h3>Change Password</h3>
+                <p>Enter a new password below and follow the instructions to register your keystroke pattern with the new password.</p>
+                <div class="input-box">
+                    <input type="text" id="new-password" placeholder="Enter new password (max 11 characters)">
+                </div>
+                <!-- Password requirements list -->
+                <div id="password-rules" style="color: #968f8f;font-size: 0.7em;">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Password length must be between 6 and 11 characters.</li>
+                        <li>At least one uppercase letter (A-Z)</li>
+                        <li>At least one lowercase letter (a-z)</li>
+                        <li>At least one number (0-9)</li>
+                        <li>At least one special character (e.g., @$!%*?&)</li>
+                    </ul>
+                </div>
+                <button class="btn" id="start-keystroke-registration">Set Password and Register Keystroke Data</button>
+            </div>
+
+            <div id="keystroke-registration-section" class="content-container" style="display:none;">
+                <h3>Type your new password to register keystroke pattern (Attempt 1 of 5)</h3>
+                <div class="input-box">
+                    <!-- Display the password for user reference -->
+                    <h4>Reference Password: <span id="displayed-password" style="font-weight: bold;"></span></h4>
+                    <input type="password" id="typing-input" placeholder="Enter your password" autocomplete="off">
+                </div>
+                <button class="btn" id="next-attempt-btn">Next Attempt</button>
+                <p id="success-message" style="display:none;">New password and keystroke profile updated successfully!</p>
+            </div>
+
+            <div id="update-typing-profile-section" class="content-container" style="display:none;">
+                <h3>Update Typing Profile</h3>
+                <p>In this section, you can update your typing profile. Type your current password as prompted to refresh your keystroke pattern data.</p>
+                <p><strong>Current Password for Reference:</strong> <span id="displayed-password"></span></p>
+                <div class="input-box">
+                    <input type="text" id="typing-input-update" placeholder="Enter your password" autocomplete="off">
+                </div>
+                <button class="btn" id="next-attempt-update-btn">Next Attempt</button>
+                <p id="update-success-message" style="display:none;">Keystroke profile updated successfully!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/profile1.js"></script>
+</body>
+</html>

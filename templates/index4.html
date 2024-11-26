@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="header">
+        <a href ="#" class="logo"><i class='bx bxs-keyboard bx-s' style='color:#7b7676'  ></i> KeystrokeDynamic</a>
+
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="window.location.href='/'">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="window.location.href='/enroll'" >Sign Up</button> 
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="content">
+            <h1>Authenticating with Every Stroke</h1>
+            <h2>Your Typing, Your Identity!</h2>
+        </div>
+
+        <div class="wrapper-login">                      
+            <h2>Sign In</h2>
+
+            <!-- Step 1: Check Email and Username --> 
+            <div class="step" id="step1"> 
+                <h3>Enter your registered email</h3>
+                <div class="input-box">                   
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="email" placeholder="Enter your email address" autocomplete="off" required>
+                </div>
+                <h3>Enter your username</h3>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" id="username" placeholder="Enter your username" required autocomplete="off">
+                </div>
+                <button class="btn" id="nextButton" onclick="checkEmailAndUsername()">Next</button>
+                <p id="error_message"></p>
+            </div>
+
+            <!-- Step 2: Enter Password 3 Times -->
+            <div class="step" id="step2" style="display:none;">
+                <h3 id="attempt_message">Please type your password in the box below (Attempt 1 of 3)</h3>
+                <div class="input-box">
+                    <input type="password" id="typing_input" placeholder="Enter your password" autocomplete="off" required>
+                </div>
+                <button class="btn" onclick="authenticateAttempt()">Next Attempt</button>
+            </div>
+
+            <div id="error_message"></div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../static/js/auth3.js"></script>
+ </div>
+</body>
+</html>

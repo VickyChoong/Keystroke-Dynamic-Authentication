@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="header">
+        <a href ="#" class="logo"><i class='bx bxs-keyboard bx-s' style='color:#7b7676'  ></i> KeystrokeDynamic</a>
+
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="window.location.href='/'">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="window.location.href='/enroll'" >Sign Up</button> 
+        </div>
+    </nav>
+
+    <section class = "home">
+        <div class ="content">
+            <h1 >Authenticating with Every Stroke</h1>
+            <h2>Your Typing, Your Identity!</h2>
+        </div>
+
+        <div class="wrapper-login">                      
+            <h2>User Enrollment</h2>
+
+            <!-- Step 1: Enter Email --> 
+            <div class="step" id="step1"> 
+                <h3>Enter your email address</h3>
+                <div class="input-box">                   
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="email" placeholder="Enter your email address" required autocomplete="off">
+                </div>
+                <button class="btn" id="nextEmailButton" onclick="nextStep(2)">Next</button>               
+            </div>
+
+            <!-- Step 2: Provide Username -->
+            <div class="step" id="step2" style="display:none;">
+                <h3>Provide your username</h3>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" id="username" placeholder="Enter your username" required autocomplete="off">
+                </div>
+                <h3>Create your password (maximum 11 characters)</h3>
+                <div class="input-box">
+                    <input type="text" id="password" placeholder="Enter your password (max 11 characters)" autocomplete="off">
+                </div>
+
+                <!-- Password requirements list -->
+                <div id="password-rules" style="color: #d0cece;font-size: 0.7em;">
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>Password length must be between 6 and 11 characters.</li>
+                        <li>At least one uppercase letter (A-Z)</li>
+                        <li>At least one lowercase letter (a-z)</li>
+                        <li>At least one number (0-9)</li>
+                        <li>At least one special character (e.g., @$!%*?&)</li>
+                    </ul>
+                </div>
+                <!-- Error message for invalid password -->
+                <p id="password-error" style="color: red; display: none;">Password must be 8-11 characters, and include uppercase, lowercase, number, and symbol.</p>
+                <button class="btn" onclick="validatePassword()">Next</button>
+            </div>
+
+            <!-- Step 3: Register Typing Pattern -->
+            <div class="step" id="step3" style="display:none;">
+                <h3>Please type your password to register your typing pattern in the box below (Attempt 1 of 5)</h3>
+                <div class="input-box">
+                    <!-- Display the password for user reference -->
+                    <h4>Reference Password: <span id="show_password" style="font-weight: bold;"></span></h4>
+                    <input type="password" id="typing_input" placeholder="Enter your password" autocomplete="off">
+                </div>
+                
+                <button class="btn" onclick="recordTyping()">Next Attempt</button>
+            </div>
+
+            <div class="step" id="enrollment_success" style="display:none;">
+                <p>SUCCESSFULLY ENROLLED</p>
+                <p>Your typing pattern has been recorded successfully!</p>
+                <p>Thank You for Enrolling</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../static/js/main3.js"></script>
+ </div>  
+</body>
+</html>
