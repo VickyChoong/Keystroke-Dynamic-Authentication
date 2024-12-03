@@ -350,6 +350,7 @@ document.querySelector(".nav-btn[onclick=\"showSection('last-login-section')\"]"
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    const displayedPasswordElement = document.getElementById('current-password-display');
                     displayedPasswordElement.textContent = data.password;  // Show password for reference
                     typingProfileUpdateSection.style.display = 'block';
                     resetUpdateTypingData();
